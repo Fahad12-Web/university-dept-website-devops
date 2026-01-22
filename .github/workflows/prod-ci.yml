@@ -1,0 +1,11 @@
+name: Production CI
+on:
+  push:
+    branches: [ main ]
+jobs:
+  prod-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build Final Image
+        run: docker build -t cs-site-prod .
