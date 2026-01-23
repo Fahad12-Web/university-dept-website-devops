@@ -1,26 +1,25 @@
 {
   "name": "university-dept-website-devops",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "University Department Website for DevOps Project",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "parcel pages/index.html",
+    "build": "parcel build pages/*.html --dist-dir ./dist --public-url ./ --no-cache",
+    "lint:html": "htmlhint pages/*.html",
+    "lint:css": "stylelint css/*.css",
+    "test": "npm run lint:html && npm run lint:css"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Fahad12-Web/university-dept-website-devops.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Fahad Ali",
   "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/Fahad12-Web/university-dept-website-devops/issues"
-  },
-  "homepage": "https://github.com/Fahad12-Web/university-dept-website-devops#readme",
   "devDependencies": {
     "htmlhint": "^1.8.0",
-    "stylelint": "^17.0.0",
-    "stylelint-config-standard": "^40.0.0"
+    "parcel": "^2.12.0",
+    "stylelint": "^16.0.0",
+    "stylelint-config-standard": "^36.0.0"
   }
 }
