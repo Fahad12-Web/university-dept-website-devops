@@ -1,0 +1,15 @@
+name: Continuous Deployment - QA
+
+on:
+  workflow_run:
+    workflows: ["Staging CI"]
+    branches: [release]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - name: Trigger Render Deploy Hook
+        run: |
+          curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK_QA }}
